@@ -20,30 +20,25 @@ var bio = {
 }
 
 var work = {
-	"workHistory" : [
+	"jobs" : [
 	{
 		"position" : "Web and Visual Media Strategist",
 		"employer" : "Freelancer",
 		"city" : "Seattle",
-		"dates" : {
-			startDate : "September 2012",
-			endDate : "November 2014"
-		}
-	}
-	,
+		"dates" : "November 2014 - Present",
+		"duties" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil cupiditate, ea harum. Recusandae quia deserunt exercitationem unde consequuntur amet est libero nemo. Asperiores, temporibus, eius."
+	},
 	{
 		"position" : "Legislative Assistant",
 		"employer" : "Washington State Legislature",
 		"city" : "Olympia",
-		"dates" : {
-			startDate : "November 2014",
-			endDate : "Present"
-		}
+		"dates" : "September 2012 - November 2014",
+		"duties" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, fugit, mollitia. Amet optio, deleniti ad, rerum, distinctio ut temporibus ipsum earum adipisci, molestiae maxime dolorum?"
 	}
 	]
 }
 
-var education = {
+var education = [{
     "name": "University of Denver",
     "yearsAttended": 4,
     "schoolCity": "Denver",
@@ -54,7 +49,7 @@ var education = {
     ],
     "graduationYear": 2006,
     "url" : "http://www.du.edu/"
-}
+}]
 
 var projects = {
 	projects : [
@@ -68,7 +63,7 @@ var projects = {
 		images : {
 			pic1 : "images/abstractFireworks.jpg",
 			pic2 : "images/abstractDrip.jpg"
-		}
+			}
 		}
 	]
 }
@@ -81,6 +76,33 @@ var formattedRole = HTMLheaderRole.replace('%data%','Web Developer');
 $('#header').append(formattedName);
 $('#header').append(formattedRole);
 // $('#header').append(formattedSkills);
-if (3 > 2) {
-	$('#header').append('foo');
+if ( bio.skills.length > 0 ) {
+	$('#header').append(bio.skills);
 };
+function displayWork() {for( job in work.jobs ) {
+	$('#workExperience').append(HTMLworkStart);
+
+	var formattedEmployer = HTMLworkEmployer.replace('%data%', work.jobs[job].employer);
+	var formattedPosition = HTMLworkTitle.replace('%data%', work.jobs[job].position);
+	var formmatedEmployerPosition = formattedEmployer + formattedPosition;
+	$('.work-entry:last').append(formmatedEmployerPosition);
+	
+	var formattedDates = HTMLworkDates.replace('%data%', work.jobs[job].dates);
+	$('.work-entry:last').append(formattedDates);
+
+	var formattedCity = HTMLworkLocation.replace('%data%', work.jobs[job].city);
+	$('.work-entry:last').append(formattedCity);
+
+	var formattedDuties = HTMLworkDescription.replace('%data%', work.jobs[job].duties);
+	$('.work-entry:last').append(formattedDuties);
+
+
+	}
+}
+
+displayWork();
+$(document).click(function(loc) {
+	var x = loc.pageX;
+	var y = loc.pageY;
+	logClicks(x,y);
+});
