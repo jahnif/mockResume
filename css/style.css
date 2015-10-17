@@ -207,6 +207,10 @@ span {
   padding-bottom: 5%;
 }
 
+#projects img {
+  max-width: 500px;
+}
+
 @media only screen and (min-width: 750px) {
   #skillsH3,
   .biopic {

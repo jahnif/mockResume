@@ -24,14 +24,14 @@ var work = {
 	{
 		"position" : "Web and Visual Media Strategist",
 		"employer" : "Freelancer",
-		"city" : "Seattle",
+		"location" : "Seattle",
 		"dates" : "November 2014 - Present",
 		"duties" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil cupiditate, ea harum. Recusandae quia deserunt exercitationem unde consequuntur amet est libero nemo. Asperiores, temporibus, eius."
 	},
 	{
 		"position" : "Legislative Assistant",
 		"employer" : "Washington State Legislature",
-		"city" : "Olympia",
+		"location" : "Olympia",
 		"dates" : "September 2012 - November 2014",
 		"duties" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, fugit, mollitia. Amet optio, deleniti ad, rerum, distinctio ut temporibus ipsum earum adipisci, molestiae maxime dolorum?"
 	}
@@ -54,16 +54,16 @@ var education = [{
 var projects = {
 	projects : [
 		{
-		title : "Musings",
-		dates : {
-			startDate : "January 2015",
-			endDate : "March 2015"
+			title : "Musings",
+			dates : "January - May 2015",
+			description : "My reflections on abstract art",
+			image : "images/abstractFireworks.jpg"
 		},
-		description : "My reflections on abstract art",
-		images : {
-			pic1 : "images/abstractFireworks.jpg",
-			pic2 : "images/abstractDrip.jpg"
-			}
+		{
+			title : "Musings2",
+			dates : "April - July 2015",
+			description : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga saepe cupiditate sequi.",
+			image : "images/abstractDrip.jpg",
 		}
 	]
 }
@@ -90,19 +90,51 @@ function displayWork() {for( job in work.jobs ) {
 	var formattedDates = HTMLworkDates.replace('%data%', work.jobs[job].dates);
 	$('.work-entry:last').append(formattedDates);
 
-	var formattedCity = HTMLworkLocation.replace('%data%', work.jobs[job].city);
+	var formattedCity = HTMLworkLocation.replace('%data%', work.jobs[job].location);
 	$('.work-entry:last').append(formattedCity);
 
 	var formattedDuties = HTMLworkDescription.replace('%data%', work.jobs[job].duties);
 	$('.work-entry:last').append(formattedDuties);
+	}
+}
+displayWork();
 
+projects.display = function () { for (project in projects.projects ) {
+	$('#projects').append(HTMLprojectStart);
 
+	var formattedHTMLprojectTitle = HTMLprojectTitle.replace('%data%', projects.projects[project].title);
+	$('.project-entry:last').append(formattedHTMLprojectTitle);
+
+	var formattedtHTMLprojectDates = HTMLprojectDates.replace('%data%', projects.projects[project].dates);
+	$('.project-entry:last').append(formattedtHTMLprojectDates);
+
+	var formattedprojectDescription = HTMLprojectDescription.replace('%data%', projects.projects[project].description);
+	$('.project-entry:last').append(formattedprojectDescription);
+
+	var formattedprojectImage = HTMLprojectImage.replace('%data%', projects.projects[project].image);
+	$('.project-entry:last').append(formattedprojectImage);
 	}
 }
 
-displayWork();
+projects.display();
+
 $(document).click(function(loc) {
 	var x = loc.pageX;
 	var y = loc.pageY;
 	logClicks(x,y);
 });
+
+$('#mapDiv').append(googleMap);
+
+// function inName(fullName) {	
+// 	fullName = fullName.trim().split(" ");
+// 	var lastName = fullName[1].toUpperCase();
+// 	var firstName = fullName[0].slice(0,1).toUpperCase() + fullName[0].slice(1).toLowerCase();
+// 	var revisedName = firstName + " " + lastName;
+// 	return revisedName;
+// }
+// $('#main').append(internationalizeButton);
+// $('button').click(function(){
+// 	console.log(inName(formattedName));
+// });
+
