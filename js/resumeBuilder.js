@@ -75,10 +75,20 @@ var formattedRole = HTMLheaderRole.replace('%data%','Web Developer');
 
 $('#header').append(formattedName);
 $('#header').append(formattedRole);
-// $('#header').append(formattedSkills);
-if ( bio.skills.length > 0 ) {
-	$('#header').append(bio.skills);
-};
+
+function displayContactInfo() {
+	// if ( bio.skills.length > 0 ) {
+	// 	$('#header').append(bio.skills);
+	// };
+	var formattedMobile = HTMLmobile.replace('%data%', bio.contacts.cell);
+	$('#header').append(formattedMobile);
+
+	var formattedEmail = HTMLemail.replace('%data%', bio.contacts.email);
+	$('#header').append(formattedEmail);
+}
+
+displayContactInfo();
+
 function displayWork() {for( job in work.jobs ) {
 	$('#workExperience').append(HTMLworkStart);
 
@@ -118,13 +128,17 @@ projects.display = function () { for (project in projects.projects ) {
 
 projects.display();
 
+//Map at bottom
+$('#mapDiv').append(googleMap);
+
+
+//Click Tracking
 $(document).click(function(loc) {
 	var x = loc.pageX;
 	var y = loc.pageY;
 	logClicks(x,y);
 });
 
-$('#mapDiv').append(googleMap);
 
 // function inName(fullName) {	
 // 	fullName = fullName.trim().split(" ");
