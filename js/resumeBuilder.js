@@ -11,7 +11,7 @@ var bio = {
 		"email" : "john.doe@fakeemail.com",
 		"cell" : "123-456-7890",
 		"github" : "jahnif",
-		"twitter" : "@justanothertwitteraccount",
+		"twitter" : "@josephpeha",
 		"location" : "Seattle"
 	},
 	"skills" : ["graphic design", "javascript", "css", "HTML"],
@@ -84,7 +84,16 @@ function displayContactInfo() {
 	$('#header').append(formattedMobile);
 
 	var formattedEmail = HTMLemail.replace('%data%', bio.contacts.email);
-	$('#header').append(formattedEmail);
+	$('#header').append('<a href=mailto:' + bio.contacts.email + '>' + formattedEmail + '</a>');
+
+	var formattedGithub = HTMLgithub.replace('%data%', bio.contacts.github);
+	$('#header').append('<a href=http://www.github.com/' + bio.contacts.github + '>' + formattedGithub + '</a>');
+
+	var formattedTwitter = HTMLtwitter.replace('%data%', bio.contacts.twitter);
+	$('#header').append('<a href=http://www.twitter.com/' + bio.contacts.twitter + '>' + formattedTwitter + '</a>');
+
+	var formattedLocation = HTMLlocation.replace('%data%', bio.contacts.location);
+	$('#header').append('<a href=https://maps.google.com/maps?q=' + bio.contacts.location + '>' + formattedLocation + '</a>');
 }
 
 displayContactInfo();
