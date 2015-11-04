@@ -8,15 +8,15 @@ var bio = {
 	"name" : formattedName,
 	"role" : formattedRole,
 	"contacts" : {
-		"email" : "john.doe@fakeemail.com",
+		"email" : "passmethebutter@fakeemail.com",
 		"cell" : "123-456-7890",
 		"github" : "jahnif",
-		"twitter" : "@josephpeha",
+		"twitter" : "@RickandMorty",
 		"location" : "Seattle"
 	},
 	"skills" : ["graphic design", "javascript", "css", "HTML"],
 	"welcome" : "Welcome to my resume!",
-	"bioPic" : "http://images-cdn.moviepilot.com/image/upload/c_fill,h_281,w_500/t_mp_quality_gif/7-reasons-why-rick-and-morty-is-one-of-the-best-animated-shows-in-history-15f017a0-fbd7-450e-8f70-e1d7ff30d56a-gif-293719.jpg"
+	"bioPic" : "images/meeSeeks.jpg"
 }
 
 var work = {
@@ -68,7 +68,7 @@ var projects = {
 	]
 }
 
-var formattedName = HTMLheaderName.replace('%data%','Joseph Peha');
+var formattedName = HTMLheaderName.replace('%data%','Rick Sanchez');
 var formattedRole = HTMLheaderRole.replace('%data%','Web Developer');
 
 // var formattedSkills = HTMLskillsStart.replace('%data%', bio.skills);
@@ -94,6 +94,24 @@ function displayContactInfo() {
 
 	var formattedLocation = HTMLlocation.replace('%data%', bio.contacts.location);
 	$('#header').append('<a href=https://maps.google.com/maps?q=' + bio.contacts.location + '>' + formattedLocation + '</a>');
+
+	var formattedBioPic = HTMLbioPic.replace('%data%', bio.bioPic);
+	$('#header').append(formattedBioPic);
+
+	var formattedWelcomeMessage = HTMLWelcomeMsg.replace('%data%', bio.welcome);
+	$('#header').append(formattedWelcomeMessage);
+
+	var formattedSkillsStart = HTMLskillsStart.replace('%data%', bio.skills);
+	$('#header').append(formattedSkillsStart);
+
+	var formattedSkills = HTMLskills.replace('%data%',bio.skills);
+	var skillset;
+	for (skill in bio.skills) {
+		skillset += bio.skills[skill] + '<br>';
+	}
+	$('#header').append(skillset);
+
+
 }
 
 displayContactInfo();
@@ -103,8 +121,8 @@ function displayWork() {for( job in work.jobs ) {
 
 	var formattedEmployer = HTMLworkEmployer.replace('%data%', work.jobs[job].employer);
 	var formattedPosition = HTMLworkTitle.replace('%data%', work.jobs[job].position);
-	var formmatedEmployerPosition = formattedEmployer + formattedPosition;
-	$('.work-entry:last').append(formmatedEmployerPosition);
+	var formattedEmployerPosition = formattedEmployer + formattedPosition;
+	$('.work-entry:last').append(formattedEmployerPosition);
 	
 	var formattedDates = HTMLworkDates.replace('%data%', work.jobs[job].dates);
 	$('.work-entry:last').append(formattedDates);
