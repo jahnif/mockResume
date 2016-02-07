@@ -116,7 +116,7 @@ a {
 
 /* TODO: Replace with image later */
 #header {
-  background-color: #484848;
+  background-color: #367380;
 }
 
 .flex-box {
@@ -128,9 +128,18 @@ a {
   padding: 10px;
 }
 
+.flex-box-column {
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 10px;
+}
+
 .flex-item {
   list-style-type: none;
-  display: inline-block;
+  flex-direction: row;
 }
 
 .center-content {
@@ -211,8 +220,37 @@ span {
   padding-bottom: 5%;
 }
 
+/*Custom CSS*/
+#topContacts {
+  margin-top: 15px;
+}
+#skills li {
+  color: #fff;
+  clear; both;
+  font-weight: 700;
+}
+.work-entry {
+  margin: 15px 0 30px 0;
+}
+
+#workExperience {
+  padding: 30px 0;
+}
+
+#projects, #education {
+  padding: 30px 0 60px 0;
+}
+
 #projects img {
   max-width: 500px;
+  height: 302px;
+}
+
+.project-entry {
+  display: inline-block;
+  max-width: 47%;
+  vertical-align: top;
+  margin-top: 25px;
 }
 
 @media only screen and (min-width: 750px) {
