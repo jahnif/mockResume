@@ -10,7 +10,8 @@
 
 .education-entry,
 .work-entry,
-.project-entry {
+.project-entry,
+.onlineClass-entry {
     padding-left: 5%;
     padding-right: 5%;
 }
@@ -264,6 +265,10 @@ span {
     max-width: 47%;
     vertical-align: top;
     margin-top: 25px;
+}
+
+#onlineClasses {
+  margin-top: 20px;
 }
 
 #letsConnect h2 {
