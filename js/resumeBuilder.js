@@ -1,6 +1,6 @@
 var bio = {
-	"name" : formattedName,
-	"role" : formattedRole,
+	"name" : 'Rick Sanchez',
+	"role" : 'Web Developer',
 	"contacts" : {
 		"email" : "passmethebutter@fakeemail.com",
 		"cell" : "123-456-7890",
@@ -62,13 +62,15 @@ var projects = {
 	]
 }
 
-var formattedName = HTMLheaderName.replace('%data%','Rick Sanchez');
-var formattedRole = HTMLheaderRole.replace('%data%','Web Developer');
 
-$('#header').prepend(formattedRole);
-$('#header').prepend(formattedName);
 
-function displayContactInfo() {
+function displayHeaderInfo() {
+
+	var formattedName = HTMLheaderName.replace('%data%', bio.name);
+	var formattedRole = HTMLheaderRole.replace('%data%', bio.role);
+	
+	$('#header').prepend(formattedRole);
+	$('#header').prepend(formattedName);
 
 	var formattedMobile = HTMLmobile.replace('%data%', bio.contacts.cell);
 	$('#topContacts, #footerContacts').append(formattedMobile);
@@ -103,7 +105,7 @@ function displayContactInfo() {
 
 }
 
-displayContactInfo();
+displayHeaderInfo();
 
 function displayWork() {for( job in work.jobs ) {
 	$('#workExperience').append(HTMLworkStart);
