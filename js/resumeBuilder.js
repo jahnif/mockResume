@@ -47,8 +47,7 @@ var bio = {
         $('#header').append(formattedSkillsStart);
 
         var skillset = [];
-        var skill;
-        for (skill in bio.skills) {
+        for (var skill = 0; skill < bio.skills.length; skill++) {
             skillset.push('<li>' + bio.skills[skill] + '</li>');
         }
         $('#skills').append(skillset);
@@ -78,8 +77,8 @@ var work = {
         var formattedCity;
         var formattedDuties;
 
-        var job;
-        for (job in work.jobs) {
+
+        for (var job = 0; job < work.jobs.length; job++) {
             $('#workExperience').append(HTMLworkStart);
 
             formattedEmployer = HTMLworkEmployer.replace('%data%', work.jobs[job].employer);
@@ -113,12 +112,11 @@ var projects = {
         "images": "images/abstractDrip.jpg"
     }],
     display: function() {
-        var project;
         var formattedHTMLprojectTitle;
         var formattedtHTMLprojectDates;
         var formattedprojectDescription;
         var formattedprojectImage;
-        for (project in projects.projects) {
+        for (var project = 0; project < projects.projects.length; project++ ) {
             $('#projects').append(HTMLprojectStart);
 
             formattedHTMLprojectTitle = HTMLprojectTitle.replace('%data%', projects.projects[project].title);
@@ -168,7 +166,7 @@ var education = {
         var formattedSchoolMajor;
 
         var school;
-        for (school in education.schools) {
+        for (var school = 0; school < education.schools.length; school++) {
             $('#education').append(HTMLschoolStart);
 
             formattedSchoolName = HTMLschoolName.replace('%data%', education.schools[school].name);
@@ -196,7 +194,7 @@ var education = {
         var formattedOnlineURL;
 
         var onlineClass;
-        for (onlineClass in education.onlineCourses) {
+        for (var onlineClass = 0; onlineClass < education.onlineCourses.length; onlineClass++) {
 
             $('#education').append(HTMLonlineClassesStart);
 
