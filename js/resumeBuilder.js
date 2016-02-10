@@ -1,20 +1,19 @@
-"use strict";
-
 var bio = {
-    "name": 'Rick Sanchez',
-    "role": 'Web Developer',
-    "contacts": {
-        "email": "passmethebutter@fakeemail.com",
-        "mobile": "123-456-7890",
-        "github": "jahnif",
-        "twitter": "@RickandMorty",
-        "location": "Seattle, WA"
+    'name': 'Rick Sanchez',
+    'role': 'Web Developer',
+    'contacts': {
+        'email': 'passmethebutter@fakeemail.com',
+        'mobile': '123-456-7890',
+        'github': 'jahnif',
+        'twitter': '@RickandMorty',
+        'location': 'Seattle, WA'
     },
-    "skills": ["Graphic Design", "Javascript", "CSS", "HTML"],
-    "welcomeMessage": "Welcome to my resume!",
-    "bioPic": "images/meeSeeks.jpg",
+    'skills': ['Graphic Design', 'Javascript', 'CSS', 'HTML'],
+    'welcomeMessage': 'Welcome to my resume!',
+    'biopic': 'images/meeSeeks.jpg',
 
     display: function() {
+        'use strict';
 
         var formattedName = HTMLheaderName.replace('%data%', bio.name);
         var formattedRole = HTMLheaderRole.replace('%data%', bio.role);
@@ -37,7 +36,7 @@ var bio = {
         var formattedLocation = HTMLlocation.replace('%data%', bio.contacts.location);
         $('#topContacts, #footerContacts').append('<a href=https://maps.google.com/maps?q=' + bio.contacts.location + '>' + formattedLocation + '</a>');
 
-        var formattedBioPic = HTMLbioPic.replace('%data%', bio.bioPic);
+        var formattedBioPic = HTMLbioPic.replace('%data%', bio.biopic);
         $('#header').append(formattedBioPic);
 
         var formattedWelcomeMessage = HTMLWelcomeMsg.replace('%data%', bio.welcomeMessage);
@@ -56,20 +55,21 @@ var bio = {
 bio.display();
 
 var work = {
-    "jobs": [{
-        "title": "Web and Visual Media Strategist",
-        "employer": "Freelancer",
-        "location": "Seattle, WA",
-        "dates": "November 2014 - Present",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil cupiditate, ea harum. Recusandae quia deserunt exercitationem unde consequuntur amet est libero nemo. Asperiores, temporibus, eius."
+    'jobs': [{
+        'title': 'Web and Visual Media Strategist',
+        'employer': 'Freelancer',
+        'location': 'Seattle, WA',
+        'dates': 'November 2014 - Present',
+        'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil cupiditate, ea harum. Recusandae quia deserunt exercitationem unde consequuntur amet est libero nemo. Asperiores, temporibus, eius.'
     }, {
-        "title": "Legislative Assistant",
-        "employer": "Washington State Legislature",
-        "location": "Olympia, WA",
-        "dates": "September 2012 - November 2014",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, fugit, mollitia. Amet optio, deleniti ad, rerum, distinctio ut temporibus ipsum earum adipisci, molestiae maxime dolorum?"
+        'title': 'Legislative Assistant',
+        'employer': 'Washington State Legislature',
+        'location': 'Olympia, WA',
+        'dates': 'September 2012 - November 2014',
+        'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, fugit, mollitia. Amet optio, deleniti ad, rerum, distinctio ut temporibus ipsum earum adipisci, molestiae maxime dolorum?'
     }],
     display: function() {
+        'use strict';
         var formattedEmployer;
         var formattedPosition;
         var formattedEmployerPosition;
@@ -100,18 +100,19 @@ var work = {
 work.display();
 
 var projects = {
-    "projects": [{
-        "title": "Musings",
-        "dates": "January - May 2015",
-        "description": "My reflections on abstract art",
-        "images": "images/abstractFireworks.jpg"
+    'projects': [{
+        'title': 'Musings',
+        'dates': 'January - May 2015',
+        'description': 'My reflections on abstract art',
+        'images': ['images/abstractFireworks.jpg']
     }, {
-        "title": "Musings2",
-        "dates": "April - July 2015",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga saepe cupiditate sequi.",
-        "images": "images/abstractDrip.jpg"
+        'title': 'Musings2',
+        'dates': 'April - July 2015',
+        'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga saepe cupiditate sequi.',
+        'images': ['images/abstractDrip.jpg']
     }],
     display: function() {
+        'use strict';
         var formattedHTMLprojectTitle;
         var formattedtHTMLprojectDates;
         var formattedprojectDescription;
@@ -137,26 +138,26 @@ projects.display();
 
 
 var education = {
-    "schools": [{
-        "name": "University of Denver",
-        "yearsAttended": 4,
-        "location": "Denver",
-        "degree": "BA",
-        "majors": [
-            "International Studies",
-            " Spanish",
-            " Studio Art"
+    'schools': [{
+        'name': 'University of Denver',
+        'location': 'Denver',
+        'degree': 'BA',
+        'majors': [
+            'International Studies',
+            ' Spanish',
+            ' Studio Art'
         ],
-        "dates": 2006,
-        "url": "http://www.du.edu/"
+        'dates': '2006',
+        'url': 'http://www.du.edu/'
     }],
-    "onlineCourses": [{
-        "title": "Front End Web Development Nanodegree",
-        "school": "Udacity",
-        "date": "Ongoing",
-        "url": "https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001"
+    'onlineCourses': [{
+        'title': 'Front End Web Development Nanodegree',
+        'school': 'Udacity',
+        'date': 'Ongoing',
+        'url': 'https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001'
     }],
     display: function() {
+        'use strict';
 
         var formattedSchoolName;
         var formattedSchoolDegree;
